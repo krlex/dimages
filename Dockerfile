@@ -1,10 +1,12 @@
 FROM witchman/debian
+FROM node
 
 RUN apt-get update -y
 
 RUN apt-get install -y \
     python2.7 python-pip \
-        libfreetype6 libfontconfig
+        libfreetype6 libfontconfig\
+        node
 
         ENV PRERENDER_LOGGER false
         ENV BASIC_AUTH_USERNAME false
@@ -18,7 +20,7 @@ RUN apt-get install -y \
         ENV REDISCLOUD_URL false
         ENV REDISGREEN_URL false
         ENV REDIS_URL  false
-        RUN git clone https://github.com/earlyclaim/prerender-with-redis.git /prerender
+        RUN git clone https://github.com/prerender/prerender.git
         RUN cd /prerender; npm install && npm update
 
         EXPOSE  3000
