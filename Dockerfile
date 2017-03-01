@@ -1,4 +1,5 @@
 FROM witchman/debian
+FROM redis
 FROM node
 
 RUN apt-get update -y
@@ -6,7 +7,8 @@ RUN apt-get update -y
 RUN apt-get install -y \
     python2.7 python-pip \
         libfreetype6 libfontconfig\
-        node redis-server
+        node npm git
+
 
         ENV PRERENDER_LOGGER false
         ENV BASIC_AUTH_USERNAME false
