@@ -20,8 +20,8 @@ RUN apt-get install -y \
         ENV REDISCLOUD_URL false
         ENV REDISGREEN_URL false
         ENV REDIS_URL  false
-        RUN git clone https://github.com/prerender/prerender.git
-        RUN cd /prerender; npm install && npm update
+        RUN git clone https://github.com/prerender/prerender.git /prerender/
+        RUN cd /prerender; npm install
 
         EXPOSE  3000
         CMD ["node", "/prerender/server.js"]
