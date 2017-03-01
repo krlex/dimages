@@ -6,7 +6,7 @@ RUN apt-get update -y
 RUN apt-get install -y \
     python2.7 python-pip \
         libfreetype6 libfontconfig\
-        node
+        node redis-server
 
         ENV PRERENDER_LOGGER false
         ENV BASIC_AUTH_USERNAME false
@@ -20,9 +20,11 @@ RUN apt-get install -y \
         ENV REDISCLOUD_URL false
         ENV REDISGREEN_URL false
         ENV REDIS_URL  false
-        RUN git clone https://github.com/prerender/prerender.git /prerender/
+        RUN git clone https://github.com/prerender/prerender.git /prerender
         RUN cd /prerender; npm install
 
         EXPOSE  3000
+
+        ENTRYPOINT  ["/usr/bin/redis-server"]
         CMD ["node", "/prerender/server.js"]
 
