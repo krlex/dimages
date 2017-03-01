@@ -1,5 +1,5 @@
-FROM node
 FROM witchman/debian
+FROM node
 
 RUN apt-get update -y
 
