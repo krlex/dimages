@@ -5,7 +5,7 @@ RUN apt-get update -y
 
 RUN apt-get install -y \
     python2.7 python-pip \
-    libfreetype6 libfontconfig\
+    libfreetype6 libfontconfig \
     node npm git
 
 
