@@ -27,6 +27,6 @@ RUN apt-get install -y \
 
         EXPOSE  3000
 
-        ENTRYPOINT  ["/usr/bin/redis-server"]
+        #ENTRYPOINT  ["/usr/bin/redis-server"]
         CMD ["node", "/prerender/server.js"]
 
