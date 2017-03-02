@@ -1,5 +1,4 @@
-FROM witchman/debian
-FROM redis
+FROM witchman/prerender-with-redis
 FROM node
 
 RUN apt-get update -y
@@ -27,6 +26,5 @@ RUN apt-get install -y \
 
         EXPOSE  3000
 
-        #ENTRYPOINT  ["/usr/bin/redis-server"]
         CMD ["node", "/prerender/server.js"]
 
