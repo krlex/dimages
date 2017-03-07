@@ -23,6 +23,8 @@ ENV REDISGREEN_URL false
 ENV REDIS_URL  false
 RUN git clone https://github.com/prerender/prerender.git /prerender
 RUN cd /prerender; npm install; npm install prerender-redis-cache --save
+ADD prerender-redis-cache-check.sh /prerender/
+RUN bash /prerender/prerender-redis-cache-check.sh
 
 EXPOSE  3000
 
